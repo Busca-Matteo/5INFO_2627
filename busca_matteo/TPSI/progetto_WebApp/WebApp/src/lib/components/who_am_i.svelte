@@ -3,6 +3,7 @@
     export let cognome;
     export let eta;
     export let url;
+    export let width = "500";
 </script>
 
 
@@ -10,4 +11,4 @@
 
 <h4>sono studente presso l'istiuto agnelli a Torino</h4>
 
-<img src={url} alt="B&B" width = "500 px">
+<img src={url} alt="B&B" width = {width}>
