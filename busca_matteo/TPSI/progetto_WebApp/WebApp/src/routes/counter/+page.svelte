@@ -27,7 +27,7 @@
 <ul>
     {#each numeri as numero}
         <li>numeri[]:{numero}</li>
-    {/each}
+    {/each}     
 </ul>
 
 
