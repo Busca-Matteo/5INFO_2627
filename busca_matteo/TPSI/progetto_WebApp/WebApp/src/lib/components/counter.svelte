@@ -4,15 +4,28 @@
 </svelte:head>
 
 <script>
-    export let counter = 10;
+    import { createEventDispatcher } from "svelte";
+    import { store_counter } from "../js/store.js";
 
-    function counter_inc() {
-        counter += 1;        
-    }
+    const dispatch = createEventDispatcher(); 
+    export let counter = 0
 
-    function counter_dec() {
-        counter -= 1;        
-    }
+    function counter_inc(){
+        counter += 1;
+        $store_counter = counter;
+        dispatch('contatore',{
+            tipo: `incremento`,
+            valore: counter,
+        });}
+
+    function counter_dec(){
+        counter -= 1;
+        $store_counter = counter;
+        dispatch('contatore',{
+            tipo: `decremento`,
+            valore: counter,
+        });}
+
 </script>
 
 
