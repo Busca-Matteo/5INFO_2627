@@ -1,23 +1,36 @@
 <script>
-    export let categoria = 'nome'
+    import Items from "./items.svelte";   
+    export let categoria = 'nome';
+    export let lista = [];
+    export let active = '';
 </script>
 
-<button> {categoria} </button>
+<div>
+    <button on:click={() => active = (active === categoria ? '' : categoria)}>
+        {categoria}
+    </button>
+
+    {#if active === categoria}
+        <Items opzioni={lista} />
+    {/if}
+</div>
 
 <style>
-    button{
+    div {
+        margin-right: 15px;
+    }
+    button {
         background-color: red;
         border-radius: 15px;
         border: 0px;
         width: 200px;
         height: 50px;
         color: white;
-        text-decoration: solid;
         font-size: 20px;
         text-transform: capitalize;
+        font-weight: bolder;
     }
-    button:hover{
+    button:hover {
         background-color: darkred;
     }
 </style>
-
